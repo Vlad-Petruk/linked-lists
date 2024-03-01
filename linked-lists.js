@@ -19,7 +19,7 @@ class LinkedList {
         }
 
         let current = this.head;
-        while (current.nextNode) {
+        while (current.nextNode !== null) {
             current = current.nextNode;
         }
 
@@ -36,11 +36,79 @@ class LinkedList {
         let current = this.head;
         let counter = 0;
 
-        while (current) {
+        while (current !== null) {
             counter++
             current = current.nextNode;
         }
         return counter;
+    }
+
+    head() {
+        return this.head;
+    }
+
+    tail() {
+        if (!this.head) {
+            return null;
+        }
+
+        let current = this.head;
+        while (current.nextNode !== null) {
+            current = current.nextNode;
+        }
+
+        return current;
+    }
+
+    at(index) {
+        if (index < 0){
+            return null;
+        } 
+        let count = 0;
+        let current = this.head;
+
+        while (current) {
+            if (count === index) {
+                return current;
+            }
+
+            count++;
+            current = current.nextNode;
+        }
+
+        return null;
+
+        
+    }
+
+    pop(){
+        if (!this.head) {
+            return null;
+        }
+
+        let current = this.head;
+        let previous = null;
+
+        while (current.nextNode) {
+            previous = current;
+            current = current.nextNode;
+        }
+
+        previous.nextNode = null;
+        return current;
+    }
+
+    contains(value) {
+        let current = this.head;
+        while (current) {
+            if(current.value === value){
+                return true
+            } 
+            current = current.nextNode;
+            
+        }
+        return false;
+
     }
 }
 
@@ -54,4 +122,5 @@ list.append(firstNode);
 list.prepend(secondNode);
 list.append(thirdNode)
 
-console.log(list.size())
+let tail = list.at(1);
+console.log(tail);
