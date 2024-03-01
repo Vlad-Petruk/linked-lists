@@ -110,6 +110,33 @@ class LinkedList {
         return false;
 
     }
+
+    find(value) {
+        let current = this.head;
+        let index = 0;
+        while (current) {
+            if(current.value === value){
+                return index;
+            } 
+
+            index++
+            current = current.nextNode;
+        }
+        return null;
+    }
+
+    toString() {
+        let result = '';
+        let current = this.head;
+
+        while (current) {
+            result += `(${current.value}) -> `;
+            current = current.nextNode;
+        }
+
+        result += 'null';
+        return result;
+    }
 }
 
 const firstNode = new Node(10);
