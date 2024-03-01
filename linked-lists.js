@@ -101,7 +101,7 @@ class LinkedList {
     contains(value) {
         let current = this.head;
         while (current) {
-            if(current.value === value){
+            if(current.value.value === value){
                 return true
             } 
             current = current.nextNode;
@@ -115,7 +115,7 @@ class LinkedList {
         let current = this.head;
         let index = 0;
         while (current) {
-            if(current.value === value){
+            if(current.value.value === value){
                 return index;
             } 
 
@@ -130,7 +130,7 @@ class LinkedList {
         let current = this.head;
 
         while (current) {
-            result += `(${current.value}) -> `;
+            result += `(${current.value.value}) -> `;
             current = current.nextNode;
         }
 
@@ -149,5 +149,6 @@ list.append(firstNode);
 list.prepend(secondNode);
 list.append(thirdNode)
 
-let tail = list.at(1);
+let tails = list.pop();
+let tail = list.size()
 console.log(tail);
