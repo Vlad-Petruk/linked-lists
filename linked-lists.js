@@ -36,10 +36,22 @@ class LinkedList {
         let current = this.head;
         let counter = 0;
 
-        while (current.nextNode) {
+        while (current) {
             counter++
             current = current.nextNode;
         }
         return counter;
     }
 }
+
+const firstNode = new Node(10);
+const secondNode = new Node(20);
+const thirdNode = new Node(30);
+
+const list = new LinkedList();
+
+list.append(firstNode);
+list.prepend(secondNode);
+list.append(thirdNode)
+
+console.log(list.size())
